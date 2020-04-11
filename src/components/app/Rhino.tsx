@@ -3,9 +3,10 @@ import {css, jsx} from '@emotion/core';
 /**@jsx jsx */
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
-import {Button} from 'mvp-webapp';
-import { makePostRequest } from '../../api_calls';
-import {Section} from "mvp-webapp"
+import {Button} from '@material-ui/core';
+import CloudUploadIcon from '@material-ui/icons/CloudUpload';
+// import { makePostRequest } from '../../api_calls';
+// import {Section} from "mvp-webapp"
 
 const links = [
     {
@@ -77,7 +78,7 @@ const bar_style = css`
         border-radius: 1000px 0 0 1000px;
         width: 100%;
         background: none;
-        color: white;
+        color: black;
         border: 2px solid var(--color2);
         border-right: none;
         padding: 6px;
@@ -100,7 +101,7 @@ const bar_style = css`
 `;
 
 
-export default function Rhino(props){
+export default function Rhino(props : object){
     const [link, setLink] = React.useState("");
     const [title, setTitle] = React.useState("");
 
@@ -108,7 +109,7 @@ export default function Rhino(props){
         setLink("");
     }
 
-    const handleLinkChange = (event) => {
+    const handleLinkChange = (event : any) => {
         setLink(event.target.value);
     }
 
@@ -116,37 +117,37 @@ export default function Rhino(props){
         setTitle("");
     }
 
-    const handleTitleChange = (event) => {
+    const handleTitleChange = (event : any) => {
         setTitle(event.target.value);
     }
 
     const handleSubmit = () => {
-        if(link !== "" && title !== ""){
-            makePostRequest('app/user/contribute', 
-            {
-                key: 'rhino',
-                content: {
-                    title,
-                    link
-                }
-            },
-            ()=>{
-                handleTitleClear()
-                handleLinkClear()
-            }
-            )
-        // submit value to database
-        }
-        else{
-            alert("Please fill in both fields");
-        }
+        // if(link !== "" && title !== ""){
+        //     makePostRequest('app/user/contribute', 
+        //     {
+        //         key: 'rhino',
+        //         content: {
+        //             title,
+        //             link
+        //         }
+        //     },
+        //     ()=>{
+        //         handleTitleClear()
+        //         handleLinkClear()
+        //     }
+        //     )
+        // // submit value to database
+        // }
+        // else{
+        //     alert("Please fill in both fields");
+        // }
         
     }
 
     return(
             <div style={{fontFamily:"var(--font1)"}}>
             <div className="form"  css={container_style}>
-                <div style={{fontSize: '30px', marginBottom: '20px', fontWeight: '900'}}>
+                <div style={{fontSize: '30px', marginBottom: '20px', fontWeight: 'bold'}}>
                     Crowdsource intelligence to combat rhino poaching in Botswana
                 </div>
                 <div className="subtitle">
@@ -179,7 +180,13 @@ export default function Rhino(props){
                     </div>
                     
                     
-                    <Button text="Submit" onClick={handleSubmit}/>
+                    <Button
+                        variant="contained"
+                        color="default"
+                        startIcon={<CloudUploadIcon />}
+                    >
+                        Upload
+                    </Button>
                 </div>
             </div>
             {/* Submitted contributions

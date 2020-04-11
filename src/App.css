@@ -27,21 +27,21 @@
   --navy: #1E144D;
 
   /* COLORS */
-  --color1: black;
+  --color1: white;
   --color1g: white;
   background-color: var(--color1);
 
-  --color2: var(--orange);
-  --color2g: rgb(172, 172, 172);
+  --color2: black;
+  --color2g: grey;
 
   --textColor: var(--orange);
   
   color: var(--textColor);
 
   /* FONTS */
-  --font1: "Montserrat";
+  --font1: "Roboto";
   /* --font2: comfortaa; */
-  --font2: "Montserrat";
+  --font2: "Roboto";
   --font3: poppins;
 
   /* FONT SIZING */
