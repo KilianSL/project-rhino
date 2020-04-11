@@ -1,7 +1,6 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import Rhino from './Rhino';
+import Rhino from './components/app/Rhino';
 
 function App() {
   return (
