@@ -1,0 +1,30 @@
+import React from 'react';
+import LandingPage from './LandingPage';
+import Rhino from './Rhino';
+
+const landingPageValues = {
+    title : "Project Rhino",
+    subtitle : "Crowdsource intelligence to combat rhino poaching in Botswana",
+    slides : [
+        {
+            title : "What is this?",
+            content : "In partnership with Adarga, we are going to crowdsource a dataset to help military operations to tackle rhino poaching in Botswana and North of the Zambezi river. Phase 1 consists of finding URLs that can point to potentially useful data sources. The next phase will consist of extracting data from these links, categorising it and cleaning it. This next phase will being within the next 2 weeks."
+        },
+        {
+            title : "How can I help?",
+            content : "All kinds of resources may be useful. For example you can submit articles, research papers, links to sources of satellite imagery or other telemetry data"
+        },
+        {
+            title : "Our Aim",
+            content : "A useful final output of this project would be code for producing different geographical heatmap overlays which then could be combined. For example, we could produce a heatmap of likely rhino watering holes, or heatmaps of difficult terrain for either poachers or rhinos. The eventual combination of these heatmaps will hopefully be able to inform where forces on the ground should deploy their resources."
+        }
+    ],
+    btnText : "Contribute",
+    btnLink : Rhino
+};
+
+export default function home(props : object){
+    return(
+        <LandingPage {...landingPageValues}/>
+    );
+}
