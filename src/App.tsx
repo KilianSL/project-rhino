@@ -8,13 +8,6 @@ import {Provider} from 'react-redux';
 import NotFound from './components/general/NotFound';
 import AppRoutes from './components/app/AppRoutes';
 
-// Not needed???
-import createHistory from 'history/createBrowserHistory';
-export const history = createHistory();
-history.listen((location, action) => {
-  window.scrollTo(0,0)
-})
-
 // App metadata
 const app = (state={}, action: object) => { // action has its type explicitely defined because it is not given a default to infer from
   return {
@@ -34,6 +27,10 @@ function App() {
         <Helmet>
           <title>{store.getState().app.name}</title>
           <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" /> {/* Roboto Font */}
+          <meta 
+            name="viewport"
+            content="minimum-scale=1, initial-scale=1, width=device-width"
+          /> {/*viewport meta for scaling material UI components*/}
         </Helmet>
         <Switch>
           <Route path="/" component={AppRoutes} />
