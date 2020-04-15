@@ -1,0 +1,44 @@
+*{
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+}
+
+.w-full{
+    width: 100%;
+}
+
+.w-max-800{
+    max-width: 800px;
+}
+
+.w-max-435{
+    max-width: 435px;
+}
+
+.w-max-600{
+    max-width: 600px;
+}
+
+.m-auto{
+    margin: auto;
+}
+
+.txt-center{
+    text-align: center;
+}
+
+.fl-row, .fl-column{
+    display: flex;
+}
+
+.fl-column{
+    flex-direction: column;
+}
+
+.fl-row {
+    flex-direction: row;
+}
+
+.fl-center{
+    align-items: center;
+}
