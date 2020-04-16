@@ -1,7 +1,6 @@
 import React from 'react';
-import LandingPage from './LandingPage';
-import Rhino from './Rhino';
-import logo from '../../logo.svg';
+import {LandingPage, Rhino} from '../../components';
+import logo from '../../images/logo.svg';
 
 const landingPageValues = {
     title : "MongoDB Atlas",

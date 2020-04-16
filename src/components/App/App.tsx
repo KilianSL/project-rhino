@@ -2,22 +2,10 @@ import React from 'react';
 import './App.css';
 import {Helmet} from "react-helmet";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import {combineReducers, createStore } from 'redux';
 import {Provider} from 'react-redux';
+import {store} from '../../redux';
 
-import NotFound from './components/general/NotFound';
-import AppRoutes from './components/app/AppRoutes';
-
-// App metadata
-const app = (state={}, action: object) => { // action has its type explicitely defined because it is not given a default to infer from
-  return {
-    name: 'Project Rhino'
-  }
-}
-
-const reducer = combineReducers({app});
-
-export const store = createStore(reducer);
+import {NotFound, AppRoutes} from '../../components';
 
 function App() {
   return (

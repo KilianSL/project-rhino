@@ -1,7 +1,6 @@
 import React from 'react';
 import {Route, Redirect} from 'react-router-dom';
-import Rhino from './Rhino';
-import Home from './Home';
+import {Home, Rhino} from '../../components';
 
 export default function AppRoutes(props:object){
     return(
