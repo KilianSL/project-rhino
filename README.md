@@ -50,10 +50,18 @@ public... static web files
 
 src
 ...components - folder for components, with index.tsx for easier imports (i.e. import {component} from '../../components')
+
     ...common - generic, reuseable components such as pageNotFound, buttons etc. 
+    
 ...images - folder for images
+
 ...redux
+
     -reducers.tsx - exports the store and contains all the reducers for the app
+    
     -actionCreators.tsx - exports functions that create and dispatch a certain action - can be imported into components and used with connect
+    
     -index.tsx - exports all from folder
+    
 ...utils - folder for generic utility functions and classes, such as functional APIs, server calls etc. 
+
