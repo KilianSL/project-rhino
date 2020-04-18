@@ -3,7 +3,7 @@ import {LandingPage, Rhino} from '../../components';
 import logo from '../../images/logo.png';
 
 const landingPageValues = {
-    title: "Contribute",
+    title: "Save the Rhino",
     subtitle: "Crowdsource intelligence to combat rhino poaching in Botswana",
     logo,
     slides : [

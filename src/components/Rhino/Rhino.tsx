@@ -145,7 +145,7 @@ export default function Rhino(props : object){
     }
 
     return(
-            <div style={{fontFamily:"var(--font1)"}}>
+            <div style={{fontFamily:"var(--font1)"}} className="fade-in">
             <div className="form"  css={container_style}>
                 <div style={{fontSize: '30px', marginBottom: '20px', fontWeight: 'bold'}}>
                     Crowdsource intelligence to combat rhino poaching in Botswana

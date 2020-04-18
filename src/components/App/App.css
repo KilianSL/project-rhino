@@ -39,9 +39,9 @@
   color: var(--textColor);
 
   /* FONTS */
-  --font1: "Roboto";
+  --font1: 'Roboto', sans-serif;
   /* --font2: comfortaa; */
-  --font2: "Roboto";
+  --font2: 'Roboto', sans-serif;
   --font3: poppins;
 
   /* FONT SIZING */
