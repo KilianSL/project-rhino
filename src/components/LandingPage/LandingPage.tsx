@@ -3,7 +3,7 @@ import {jsx, css} from '@emotion/core';
 /**@jsx jsx */
 import {Button, useMediaQuery} from '@material-ui/core';
 import {Link} from 'react-router-dom';
-import '../../classes.css';
+import '../../styleguide.css';
 
 // Responsive landing page component - breaks at 1000px
 // Shows either slides displaying text+button or paragraphs of text for MobileStepper
