@@ -1,9 +1,8 @@
 import React from 'react';
-import './App.css';
 import {Helmet} from "react-helmet";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import {Provider} from 'react-redux';
-import {store} from '../../redux';
+import {store} from '../../utils';
 
 import {NotFound, AppRoutes} from '../../components';
 

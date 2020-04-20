@@ -1,29 +1,28 @@
 import React from 'react';
 import {useMediaQuery} from '@material-ui/core';
-import '../../styleguide.css';
-import {LandingPageProps} from './types';
-import LandingPageMobile from './LandingPageMobile';
-import LandingPagePC from './LandingPagePC';
 
-// Responsive landing page component - breaks at 1000px
-// Shows either slides displaying text+button or paragraphs of text for MobileStepper
-// Last slide is form to sign up / enter any details
+// Landing page for browser and mobile. 
+// Displays a title and subtitle over a background image, 
+// as well as a call to action button and a secondary action button
 
-export default function LandingPage(props : LandingPageProps){
+type props = {
+    title : string,
+    subtitle : string,
+    logo : string,
+    button1 : {
+        text : string,
+        to : string
+    }
+    button2 : {
+        text : string,
+        to : string
+    }
+    footer : string
+}
+
+export default function LandingPage(props : props){
 
     const isMobile = useMediaQuery('(max-width:1000px)');
-
-    if (isMobile) {
-        return(
-            // MOBILE VERIOSN
-            <LandingPageMobile {...props} />
-        )
-    }
-    else {
-        return(
-            // DESKTOP VERSION
-            <LandingPagePC {...props} />
-        )
-    }
+    
 }
 
