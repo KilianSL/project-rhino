@@ -27,45 +27,9 @@ export default function LandingPage(props : props){
     const isMobile = useMediaQuery('(max-width:1000px)');
 
     return(
-        <div style={{width:"100vw", 
-            height : "100vh", 
-            overflow: "hidden",
-            backgroundImage : `url(${props.background})`,
-            backgroundSize : "cover" }}>
-            <Container maxWidth="lg">
-                <Grid
-                    container
-                    direction="column"
-                    justify="flex-start"
-                    alignItems="center"
-                >
-                    <img src={props.logo} />
-                    <h1>{props.title}</h1>
-                    <h3>{props.subtitle}</h3>
-                    <Grid 
-                        item
-                        direction="row"
-                        justify="space-evenly"
-                    >
-                        <Button 
-                            color="primary"
-                            component={Link}
-                            to={props.button1.to}
-                        >
-                            {props.button1.text}
-                        </Button>
-                        <Button 
-                            color="secondary"
-                            component={Link}
-                            to={props.button2.to}
-                        >
-                            {props.button2.text}
-                        </Button>
-                    </Grid>
-                </Grid>
-                <footer style={{bottom: "0"}}>The AI Core</footer>
-            </Container>
-        </div> 
+        <div>
+
+        </div>
     )
 }
 

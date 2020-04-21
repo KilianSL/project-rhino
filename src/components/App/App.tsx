@@ -3,6 +3,8 @@ import {Helmet} from "react-helmet";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import {Provider} from 'react-redux';
 import {store} from '../../utils';
+import {Home, Rhino} from '../../components';
+import {InformationPage} from '../../pages';
 
 import {NotFound, AppRoutes} from '../../components';
 
@@ -20,7 +22,9 @@ function App() {
           /> {/*viewport meta for scaling material UI components*/}
         </Helmet>
         <Switch>
-          <Route path="/" component={AppRoutes} />
+          <Route path='/' exact component={App} />
+          <Route path='/contribute' exact component={Rhino} />
+          <Route path='/about' exact component={InformationPage} />
           <Route path="" component={NotFound} />
         </Switch> 
       </div>
