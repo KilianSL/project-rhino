@@ -1,7 +1,7 @@
-import {combineReducers, createStore } from 'redux';
+import {combineReducers, createStore, Action } from 'redux';
 
 // App metadata
-const app = (state={}, action: object) => { // action has its type explicitely defined because it is not given a default to infer from
+const app = (state={name:""}, action: Action) => { // action has its type explicitely defined because it is not given a default to infer from
     return {
       name: 'Project Rhino'
     }

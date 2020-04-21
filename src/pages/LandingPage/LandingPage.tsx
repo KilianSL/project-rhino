@@ -1,6 +1,5 @@
 import React from 'react';
 import {useMediaQuery, Container, Grid, Button} from '@material-ui/core';
-import {Link} from 'react-router-dom';
 
 // Landing page for browser and mobile. 
 // Displays a title and subtitle over a background image, 
@@ -28,7 +27,7 @@ export default function LandingPage(props : props){
 
     return(
         <div>
-
+            YOU ARE ON THE LANDING PAGE
         </div>
     )
 }
