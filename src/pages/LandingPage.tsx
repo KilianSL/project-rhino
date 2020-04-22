@@ -1,8 +1,8 @@
 import React from 'react';
 import {Box, Paper, useMediaQuery, Grid, Typography, Button, Theme} from '@material-ui/core';
 import {useTheme, withStyles, WithStyles, createStyles} from '@material-ui/styles';
-import background from '../../images/rhino.jpg';
-import logo from '../../images/logo.png';
+import background from '../images/rhino.jpg';
+import logo from '../images/logo.png';
 
 // Landing page for browser and mobile. 
 // Displays a title and subtitle over a background image, 

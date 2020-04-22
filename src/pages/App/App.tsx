@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import {Provider} from 'react-redux';
 import {ThemeProvider} from '@material-ui/core';
 import {store} from '../../utils';
-import LandingPage from '../LandingPage/LandingPage';
+import LandingPage from '../LandingPage';
 import ErrorPage from '../ErrorPage/ErrorPage';
 import {theme} from '../../utils';
 
