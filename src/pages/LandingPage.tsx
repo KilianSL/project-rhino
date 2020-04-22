@@ -1,5 +1,6 @@
 import React from 'react';
-import {Box, Paper, useMediaQuery, Grid, Typography, Button, Theme} from '@material-ui/core';
+import {Link} from 'react-router-dom';
+import {Box, Paper, useMediaQuery, Grid, Typography, Button, Theme, Fade} from '@material-ui/core';
 import {useTheme, withStyles, WithStyles, createStyles} from '@material-ui/styles';
 import background from '../images/rhino.jpg';
 import logo from '../images/logo.png';
@@ -26,6 +27,7 @@ const styles = ({palette} : Theme) => createStyles({ // Creates style from objec
         padding: '10px',
         overflow : "hidden",
         backgroundColor : palette.primary.main
+
     },
     item : {
         marginTop : '50px'
@@ -65,7 +67,7 @@ const styles = ({palette} : Theme) => createStyles({ // Creates style from objec
 });
 
 interface props extends WithStyles<typeof styles> { // passes all relevant classes to prop interface
-  
+
 }
 
 function LandingPage(props : props){
@@ -74,21 +76,23 @@ function LandingPage(props : props){
     const mob = useMediaQuery('(max-width:480px)')
     return(
         <Box className={classes.root}>
-            <Paper className={classes.itemContainer} elevation={10}>
-                <Grid className={classes.itemContainer} container direction="column" alignItems="center" justify="flex-start">
-                    <Grid item container direction="row" justify="center" alignItems="center" className={classes.item}>
-                        <img src={logo} style={{width : "30%"}}/>
-                        <Typography variant="h1" className={classes.text}><Typography variant="h5">AI Core</Typography>Rhino</Typography>
-                    </Grid>
-                    <Grid item container direction="column" justify="space-evenly" className={classes.item}>
-                        <Typography variant="h3" className={[classes.item, classes.text].join(" ")}>Crowdsource intelligence to combat rhino poaching in Botswana</Typography>
-                        <Grid item container direction={mob ? "column" : "row"} justify="space-evenly" alignItems="center" className={classes.item}>
-                            <Button color="secondary" variant="contained" className={classes.button1}>Contribute</Button>
-                            <Button color="default" variant="outlined" className={classes.button2}>Learn More</Button>
+                <Paper className={classes.itemContainer} elevation={20}>
+                    <Fade in={true}>
+                        <Grid className={classes.itemContainer} container direction="column" alignItems="center" justify="flex-start">
+                            <Grid item container direction="row" justify="center" alignItems="center" className={classes.item}>
+                                <img src={logo} style={{width : "30%"}}/>
+                                <Typography variant="h1" className={classes.text}><Typography variant="h5">AI Core</Typography>Rhino</Typography>
+                            </Grid>
+                            <Grid item container direction="column" justify="space-evenly" className={classes.item}>
+                                <Typography variant="h3" className={[classes.item, classes.text].join(" ")}>Crowdsource intelligence to combat rhino poaching in Botswana</Typography>
+                                <Grid item container direction={mob ? "column" : "row"} justify="space-evenly" alignItems="center" className={classes.item}>
+                                    <Button color="secondary" variant="contained" className={classes.button1}>Contribute</Button>
+                                    <Button color="default" variant="outlined" className={classes.button2} component={Link} to="/about">Learn More</Button>
+                                </Grid>
+                            </Grid>
                         </Grid>
-                    </Grid>
-                </Grid>
-            </Paper>
+                    </Fade>
+                </Paper>
         </Box>
     );
 }
