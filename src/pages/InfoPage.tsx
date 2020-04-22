@@ -1,6 +1,6 @@
 import React from 'react';
 import {useTheme, withStyles, WithStyles, createStyles} from '@material-ui/styles';
-import {Theme, Grid, Container, Paper, useMediaQuery, Typography, Button, Fade, Fab, Zoom} from '@material-ui/core';
+import {Theme, Grid, Paper, useMediaQuery, Typography, Button, Fade, Fab, Zoom} from '@material-ui/core';
 import {Link} from 'react-router-dom';
 import background from '../images/rhino.jpg';
 import logo from '../images/logo.png';
@@ -70,7 +70,9 @@ const styles = ({palette} : Theme) => createStyles({ // Creates style from objec
         marginBottom: '10px',
         bottom: '0',
         width: '100%',
-        position: "sticky"
+        position: "sticky",
+        display : "flex",
+        alignItems : "center"
     },
     back : {
         position: "absolute",
@@ -119,7 +121,7 @@ function InfoPage(props : props){
                                 <Typography variant="h6" align="center" className={classes.content}>A useful final output of this project would be code for producing different geographical heatmap overlays which then could be combined. For example, we could produce a heatmap of likely rhino watering holes, or heatmaps of difficult terrain for either poachers or rhinos. The eventual combination of these heatmaps will hopefully be able to inform where forces on the ground should deploy their resources.</Typography>
                             </Typography>
                             <Zoom in={true} timeout={500}>
-                                <Fab color="secondary" className={classes.button} variant="extended">Contribute</Fab>
+                                <Fab color="secondary" className={classes.button} variant="extended" component={Link} to="/browse">Contribute</Fab>
                             </Zoom>
                         </Grid>
                     </Fade>

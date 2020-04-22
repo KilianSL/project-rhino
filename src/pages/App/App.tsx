@@ -8,6 +8,7 @@ import LandingPage from '../LandingPage';
 import ErrorPage from '../ErrorPage/ErrorPage';
 import InfoPage from '../InfoPage';
 import {theme} from '../../utils';
+import BrowsePage from '../BrowsePage';
 
 // APP PAGE - HANDLES ROUTING FOR ALL OF APP - PROVIDES STORE TO ALL COMPONENTS IN APP - HAS HELMET FOR META ETC.
 
@@ -28,6 +29,7 @@ function App() {
           <Switch>
             <Route path='/' exact component={LandingPage} />
             <Route path='/app' exact component={LandingPage} />
+            <Route path='/browse' exact component={BrowsePage} />
             <Route path='/about' exact component={InfoPage} />
             <Route path ='' component={ErrorPage} />
           </Switch>

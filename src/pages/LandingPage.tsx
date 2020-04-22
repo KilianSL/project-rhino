@@ -9,9 +9,6 @@ import logo from '../images/logo.png';
 // Displays a title and subtitle over a background image, 
 // as well as a call to action button and a secondary action button
 
-
-
-
 const styles = ({palette} : Theme) => createStyles({ // Creates style from object
     root : {
         height: '100vh',
@@ -72,7 +69,6 @@ interface props extends WithStyles<typeof styles> { // passes all relevant class
 
 function LandingPage(props : props){
     const {classes} = props;
-    const theme = useTheme();
     const mob = useMediaQuery('(max-width:480px)')
     return(
         <Box className={classes.root}>
@@ -86,7 +82,7 @@ function LandingPage(props : props){
                             <Grid item container direction="column" justify="space-evenly" className={classes.item}>
                                 <Typography variant="h3" className={[classes.item, classes.text].join(" ")}>Crowdsource intelligence to combat rhino poaching in Botswana</Typography>
                                 <Grid item container direction={mob ? "column" : "row"} justify="space-evenly" alignItems="center" className={classes.item}>
-                                    <Button color="secondary" variant="contained" className={classes.button1}>Contribute</Button>
+                                    <Button color="secondary" variant="contained" className={classes.button1} component={Link} to="/browse">Contribute</Button>
                                     <Button color="default" variant="outlined" className={classes.button2} component={Link} to="/about">Learn More</Button>
                                 </Grid>
                             </Grid>
