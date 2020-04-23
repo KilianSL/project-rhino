@@ -60,7 +60,8 @@ const styles = ({palette} : Theme) => createStyles({
         borderColor : palette.primary.main,
         backgroundColor: palette.primary.main,
         color: "white",
-        borderBottom: "10px solid black"
+        // borderBottom: "10px solid black"
+        marginBottom: "10px"
     },
     sortSelect : {
         minWidth: 120,

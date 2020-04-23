@@ -13,6 +13,13 @@ const useStyles = makeStyles((theme : Theme) =>
             color: "white",
             borderRadius: 0
         },
+        [theme.breakpoints.up('lg')]: {
+            root : {
+                borderRadius: theme.shape.borderRadius,
+                marginBottom: "5px",
+                
+            }
+        }
     })
 )
 
