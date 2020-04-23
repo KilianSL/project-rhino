@@ -1,5 +1,5 @@
 import React from 'react';
-import {useTheme, withStyles, WithStyles, createStyles} from '@material-ui/styles';
+import {withStyles, WithStyles, createStyles} from '@material-ui/styles';
 import {Theme, Fab} from '@material-ui/core';
 import PostAddIcon from '@material-ui/icons/PostAdd';
 import {AppBar} from '../components';
@@ -14,12 +14,14 @@ interface props extends WithStyles<typeof styles>{
 }
 
 function BrowsePage(props : props){
+    const {classes} = props;
+
     return(
         <>
         <AppBar />
-        <Fab color="secondary" aria-label="post" style={{right:"0", bottom:"0"}}>
+        {/* <Fab color="secondary" aria-label="post" style={{right:"0", bottom:"0"}}>
             <PostAddIcon htmlColor="black"/>
-        </Fab>
+        </Fab> */}
         </>
     )
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import {Box, Paper, useMediaQuery, Grid, Typography, Button, Theme, Fade} from '@material-ui/core';
-import {useTheme, withStyles, WithStyles, createStyles} from '@material-ui/styles';
+import { withStyles, WithStyles, createStyles} from '@material-ui/styles';
 import background from '../images/rhino.jpg';
 import logo from '../images/logo.png';
 

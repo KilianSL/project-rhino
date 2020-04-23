@@ -1,6 +1,6 @@
 import React from 'react';
-import {useTheme, withStyles, WithStyles, createStyles} from '@material-ui/styles';
-import {Theme, Grid, Paper, useMediaQuery, Typography, Button, Fade, Fab, Zoom} from '@material-ui/core';
+import {withStyles, WithStyles, createStyles} from '@material-ui/styles';
+import {Theme, Grid, Paper, Typography, Button, Fade, Fab, Zoom} from '@material-ui/core';
 import {Link} from 'react-router-dom';
 import background from '../images/rhino.jpg';
 import logo from '../images/logo.png';
@@ -94,8 +94,6 @@ interface props extends WithStyles<typeof styles>{
 
 function InfoPage(props : props){
     const {classes} = props;
-    const theme = useTheme();
-    const mob = useMediaQuery('(max-width:480px)')
     return(
         <Grid className={classes.root} justify="center" alignItems="center">
                 <Paper className={classes.itemContainer} elevation={20}>
