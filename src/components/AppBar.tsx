@@ -79,46 +79,45 @@ function ElevateOnScroll(props : {children : React.ReactElement}) {
 
   return(
     React.cloneElement(props.children, {
-      elevation: trigger ? 5 : 0
+      elevation: trigger ? 5 : 0,
     })
   );
 }
 
 export default function ButtonAppBar() {
+
   const classes = useStyles();
 
   return (
     <ElevateOnScroll>
-      <div className={classes.root}>
-        <AppBar position="sticky">
-          <Toolbar>
-            <Link to="/browse" className={classes.logo}>
-              <img src={logo} style={{height: "100%"}}/>
-              <Typography variant="h4" noWrap className={classes.title}>Rhino</Typography>
-            </Link>
-            <div className={classes.search}>
-              <div className={classes.searchIcon}>
-                <SearchIcon />
-              </div>
-              <InputBase
-                placeholder="Search…"
-                classes={{
-                  root: classes.inputRoot,
-                  input: classes.inputInput,
-                }}
-                inputProps={{ 'aria-label': 'search' }}
-              />
+      <AppBar position="sticky" elevation={0} className={classes.root}>
+        <Toolbar>
+          <Link to="/browse" className={classes.logo}>
+            <img src={logo} style={{height: "100%"}}/>
+            <Typography variant="h4" noWrap className={classes.title}>Rhino</Typography>
+          </Link>
+          <div className={classes.search}>
+            <div className={classes.searchIcon}>
+              <SearchIcon />
             </div>
-            <IconButton
-            edge="start"
-            color="inherit"
-            aria-label="open drawer"
-          >
-            <MenuIcon />
-          </IconButton>
-          </Toolbar>
-        </AppBar>
-      </div>
+            <InputBase
+              placeholder="Search…"
+              classes={{
+                root: classes.inputRoot,
+                input: classes.inputInput,
+              }}
+              inputProps={{ 'aria-label': 'search' }}
+            />
+          </div>
+          <IconButton
+          edge="start"
+          color="inherit"
+          aria-label="open drawer"
+        >
+          <MenuIcon />
+        </IconButton>
+        </Toolbar>
+      </AppBar>
     </ElevateOnScroll>
     
   );
