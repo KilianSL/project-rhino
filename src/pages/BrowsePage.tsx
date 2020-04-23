@@ -13,6 +13,7 @@ const styles = ({palette} : Theme) => createStyles({
         width: "100%",
         display : "flex",
         justifyContent : "space-evenly",
+        alignItems : 'center',
         padding: "5px 0",
         borderColor : palette.primary.main,
         backgroundColor: palette.primary.main,
@@ -21,6 +22,7 @@ const styles = ({palette} : Theme) => createStyles({
     sortSelect : {
         minWidth: 120,
         color: "white",
+        marginTop: "3px",
         backgroundColor: palette.primary.light,
         padding: "0 5px"
     }
@@ -44,6 +46,7 @@ function BrowsePage(props : props){
         <AppBar />
         <Box className={classes.sortToolbar} borderTop={1} borderBottom={1}>
             <Typography variant="h6">Sort Posts By: </Typography>
+            {/* MAYBE IMPLMENT THIS AS TABS FOR A LATER RELEASE - USE REACT-SWIPEABLE-VIEWS*/}
             <Select
                 value={sort}
                 onChange={handleSortSelectChange}
