@@ -1,9 +1,10 @@
 import React from 'react';
 import {withStyles, WithStyles, createStyles} from '@material-ui/styles';
-import {Theme, Fab, Container, Select, Box, MenuItem, Typography, useMediaQuery} from '@material-ui/core';
+import {Theme, Fab, Container, Select, Box, MenuItem, Typography, useMediaQuery, useScrollTrigger, Slide} from '@material-ui/core';
 import PostAddIcon from '@material-ui/icons/PostAdd';
 import {AppBar} from '../components';
 import {PostCard} from '../components';
+import {CreatePostCard} from '../components';
  
 // DUMMY CONTENT FOR DISPLAYING POSTS
 import {Post} from '../interfaces';
@@ -76,6 +77,22 @@ interface props extends WithStyles<typeof styles>{
 
 }
 
+function PostButton() {
+
+    const trigger = useScrollTrigger({
+      disableHysteresis: true,
+      threshold : 0,
+    });
+  
+    return(
+        <Slide direction="up" in={trigger}>
+            <Fab color="secondary" aria-label="post" style={{position:"fixed", bottom:"20px", right:"20px"}}>
+                <PostAddIcon htmlColor="black"/>
+            </Fab>
+        </Slide>
+    )
+  }
+
 function BrowsePage(props : props){
     const {classes} = props;
     const [sort, setSort] = React.useState("new")
@@ -87,33 +104,32 @@ function BrowsePage(props : props){
     }
 
     return(
-        <>
-        <AppBar />
-        <Box className={classes.sortToolbar} borderTop={1} borderBottom={1}>
-            <Typography variant="h6">Sort Feed By: </Typography>
-            {/* MAYBE IMPLMENT THIS AS TABS FOR A LATER RELEASE - USE REACT-SWIPEABLE-VIEWS*/}
-            <Select
-                value={sort}
-                onChange={handleSortSelectChange}
-                className={classes.sortSelect}
-            >
-                <MenuItem value="new">New</MenuItem>
-                <MenuItem value="best">Best</MenuItem>
-            </Select>
-        </Box>
-        <Container className={classes.root} maxWidth="lg" disableGutters={isMobile}>
-            {
-                posts.map((p) => {
-                    return(
-                        <PostCard {...p} />
-                    )
-                })
-            }
-        </Container>
-        {/* <Fab color="secondary" aria-label="post" style={{right:"0", bottom:"0"}}>
-            <PostAddIcon htmlColor="black"/>
-        </Fab> */}
-        </>
+            <>
+            <AppBar />
+            <Box className={classes.sortToolbar} borderTop={1} borderBottom={1}>
+                <Typography variant="h6">Sort Feed By: </Typography>
+                {/* MAYBE IMPLMENT THIS AS TABS FOR A LATER RELEASE - USE REACT-SWIPEABLE-VIEWS*/}
+                <Select
+                    value={sort}
+                    onChange={handleSortSelectChange}
+                    className={classes.sortSelect}
+                >
+                    <MenuItem value="new">New</MenuItem>
+                    <MenuItem value="best">Best</MenuItem>
+                </Select>
+            </Box>
+            <Container className={classes.root} maxWidth="lg" disableGutters={isMobile}>
+                <CreatePostCard />
+                {
+                    posts.map((p) => {
+                        return(
+                            <PostCard {...p} />
+                        )
+                    })
+                }
+                <PostButton />
+            </Container>
+            </>
     )
 }
 

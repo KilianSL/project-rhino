@@ -84,6 +84,8 @@ function ElevateOnScroll(props : {children : React.ReactElement}) {
   );
 }
 
+// TO DO: CREATE BROWSER VERSION OF APPBAR - LONG SEARCHBAR ETC. 
+
 export default function ButtonAppBar() {
 
   const classes = useStyles();
