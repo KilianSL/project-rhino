@@ -111,7 +111,9 @@ function BrowsePage(props : props){
                         )
                     })
                 }
-                <PopUpButton ariaLabel="post" onClick={()=>{console.log("Clicked")}} direction="up" icon={PostAddIcon}/>
+                <PopUpButton ariaLabel="post" direction="up">
+                    <PostAddIcon />
+                </PopUpButton>
             </Container>
             </>
     )
