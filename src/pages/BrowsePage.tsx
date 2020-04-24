@@ -81,12 +81,12 @@ function PostButton() {
 
     const trigger = useScrollTrigger({
       disableHysteresis: true,
-      threshold : 0,
+      threshold : 100,
     });
   
     return(
         <Slide direction="up" in={trigger}>
-            <Fab color="secondary" aria-label="post" style={{position:"fixed", bottom:"20px", right:"20px"}}>
+            <Fab color="secondary" aria-label="post" style={{position:"fixed", bottom:"5%", right:"10%"}}>
                 <PostAddIcon htmlColor="black"/>
             </Fab>
         </Slide>
