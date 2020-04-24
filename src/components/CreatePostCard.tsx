@@ -1,7 +1,6 @@
 import React from 'react';
-import { Card, Fade, Button, Grid, CardActionArea, CardContent, Typography, CardActions, Input } from '@material-ui/core';
+import { Card, Fade, Button, Grid, CardActionArea, Input } from '@material-ui/core';
 import { createStyles, makeStyles, Theme, fade } from '@material-ui/core/styles';
-import {Post} from '../interfaces';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import PostAddIcon from '@material-ui/icons/PostAdd';
 
@@ -29,7 +28,7 @@ const useStyles = makeStyles((theme : Theme) =>
             width: '80%',
             [theme.breakpoints.up('sm')]: {
               marginLeft: theme.spacing(3),
-              width: 'auto',
+              width: '80%',
             },
           },
         [theme.breakpoints.up('lg')]: {
@@ -50,7 +49,7 @@ export default function PostCard(){
            <CardActionArea className={classes.actionArea}> 
                 <Grid container direction="row" wrap="nowrap" justify="space-evenly" alignItems="center">
                     <AccountCircleIcon  fontSize="large" color="secondary"/>
-                    <Input className={classes.input} placeholder="Create Post..."></Input>
+                    <Input className={classes.input} placeholder="Create Post..." disabled></Input>
                     <PostAddIcon/>
                 </Grid>
            </CardActionArea>

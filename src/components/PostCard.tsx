@@ -52,13 +52,13 @@ export default function PostCard(props : Post){
                 </CardContent>
             </CardActionArea>
             <CardActions>
-                <Button onClick={handleLikeEvent} style={{color : likeState === 1 ? "red" : "grey"}}>
+                <Button onClick={handleLikeEvent} style={{color : likeState === 1 ? "crimson" : "grey"}}>
                     <ArrowUpwardIcon />
                 </Button>
                 <Typography variant="body2">
                     {props.likes}
                 </Typography>
-                <Button onClick={handleDislikeEvent} style={{color : likeState === -1 ? "blue" : "grey"}}>
+                <Button onClick={handleDislikeEvent} style={{color : likeState === -1 ? "dodgerblue" : "grey"}}>
                     <ArrowDownwardIcon />
                 </Button>
             </CardActions>
