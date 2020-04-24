@@ -1,10 +1,11 @@
 import React from 'react';
 import {withStyles, WithStyles, createStyles} from '@material-ui/styles';
-import {Theme, Fab, Container, Select, Box, MenuItem, Typography, useMediaQuery, useScrollTrigger, Slide} from '@material-ui/core';
+import {Theme, Container, Select, Box, MenuItem, Typography, useMediaQuery, useScrollTrigger, Slide} from '@material-ui/core';
 import PostAddIcon from '@material-ui/icons/PostAdd';
 import {AppBar} from '../components';
 import {PostCard} from '../components';
-import {CreatePostCard} from '../components';
+import {CreatePostCard, PopUpButton} from '../components';
+
  
 // DUMMY CONTENT FOR DISPLAYING POSTS
 import {Post} from '../interfaces';
@@ -62,7 +63,6 @@ const styles = ({palette} : Theme) => createStyles({
         backgroundColor: palette.primary.main,
         color: "white",
         // borderBottom: "10px solid black"
-        marginBottom: "10px"
     },
     sortSelect : {
         minWidth: 120,
@@ -76,22 +76,6 @@ const styles = ({palette} : Theme) => createStyles({
 interface props extends WithStyles<typeof styles>{
 
 }
-
-function PostButton() {
-
-    const trigger = useScrollTrigger({
-      disableHysteresis: true,
-      threshold : 100,
-    });
-  
-    return(
-        <Slide direction="up" in={trigger}>
-            <Fab color="secondary" aria-label="post" style={{position:"fixed", bottom:"5%", right:"10%"}}>
-                <PostAddIcon htmlColor="black"/>
-            </Fab>
-        </Slide>
-    )
-  }
 
 function BrowsePage(props : props){
     const {classes} = props;
@@ -127,7 +111,7 @@ function BrowsePage(props : props){
                         )
                     })
                 }
-                <PostButton />
+                <PopUpButton ariaLabel="post" onClick={()=>{console.log("Clicked")}} direction="up" icon={PostAddIcon}/>
             </Container>
             </>
     )
