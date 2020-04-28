@@ -1,4 +1,4 @@
-export const api_root = 'https://7yztpwuwl1.execute-api.eu-west-2.amazonaws.com/prod/';
+export const api_root = 'https://6maig9i4c6.execute-api.eu-west-2.amazonaws.com/prod';
 
 export const config =  {
     s3: {

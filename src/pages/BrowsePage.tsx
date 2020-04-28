@@ -4,44 +4,50 @@ import {Theme, Container, Select, Box, MenuItem, Typography, useMediaQuery, useS
 import PostAddIcon from '@material-ui/icons/PostAdd';
 import {AppBar} from '../components';
 import {PostCard} from '../components';
-import {CreatePostCard, PopUpButton} from '../components';
+import {CreatePostCard, PopUpButton, CreatePostScreen} from '../components';
 
  
 // DUMMY CONTENT FOR DISPLAYING POSTS
 import {Post} from '../interfaces';
-import CreatePostScreen from '../components/CreatePostScreen';
+
 const posts : Array<Post>= [
     {
+        postID : "",
         title : "Rhino migration patterns",
         description : "A Collection of CSV files showing how rhinos travelled over the last 13 months.",
         likes : 5,
         content : "wikipedia.com/rhino"
     },
     {
+        postID : "",
         title : "Rhino migration patterns",
         description : "A Collection of CSV files showing how rhinos travelled over the last 13 months.",
         likes : 5,
         content : "wikipedia.com/rhino"
     },
     {
+        postID : "",
         title : "Rhino migration patterns",
         description : "A Collection of CSV files showing how rhinos travelled over the last 13 months.",
         likes : 5,
         content : "wikipedia.com/rhino"
     },
     {
+        postID : "",
         title : "Rhino migration patterns",
         description : "A Collection of CSV files showing how rhinos travelled over the last 13 months.",
         likes : 5,
         content : "wikipedia.com/rhino"
     },
     {
+        postID : "",
         title : "Rhino migration patterns",
         description : "A Collection of CSV files showing how rhinos travelled over the last 13 months.",
         likes : 5,
         content : "wikipedia.com/rhino"
     },
     {
+        postID : "",
         title : "Rhino migration patterns",
         description : "A Collection of CSV files showing how rhinos travelled over the last 13 months.",
         likes : 5,

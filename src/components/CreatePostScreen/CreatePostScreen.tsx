@@ -1,6 +1,7 @@
 import React from 'react';
 import { Input, Button, Slide, Backdrop, Grid, TextField, Typography, fade } from '@material-ui/core';
 import { createStyles, makeStyles, Theme} from '@material-ui/core/styles';
+import submitPost from './submitPost';
 
 
 interface props {
@@ -49,21 +50,24 @@ const useStyles = makeStyles((theme : Theme) =>
 
 export default function CreatePostScreen(props : props){
 
-    const [title, setTitle] = React.useState("");
-    const [description, setDescription] = React.useState("");
-    const [links, setLinks] = React.useState("");
+    const [postContent, setPostContent] = React.useState({title : "", description : "", content : ""})
 
     const handleTitleUpdate = (e : React.ChangeEvent<HTMLInputElement>) => {
-        setTitle(e.target.value);
+        setPostContent({...postContent, title : e.target.value});
     }
     const handleDescriptionUpdate = (e : React.ChangeEvent<HTMLInputElement>) => {
-        setDescription(e.target.value);
+        setPostContent({...postContent, description : e.target.value});
     }
     const handleLinkUpdate = (e : React.ChangeEvent<HTMLInputElement>) => {
-        setLinks(e.target.value);
+        setPostContent({...postContent, content : e.target.value});
+    }
+    const clearPostContent = () => {
+        setPostContent({title : "", description : "", content : ""});
     }
     const handleSubmit = () => {
         console.log("Submitted");
+        submitPost(postContent.title, postContent.description, postContent.content);
+        clearPostContent();
         props.toggleVisible();
     }
 
@@ -75,8 +79,17 @@ export default function CreatePostScreen(props : props){
                     <Button onClick={props.toggleVisible} className={classes.closeButton}>X</Button>
                     <Grid container direction="column" justify="space-evenly">
                         <Typography variant="h3" style={{marginBottom : "10px"}}>Create New Post</Typography>
-                        <form noValidate autoComplete="off" onSubmit={()=>console.log("Submitted")}>
-                            <TextField id="title" label="Title" variant="filled" fullWidth className={classes.input} placeholder="Give your post a title..." onChange={handleTitleUpdate}/>
+                        <form noValidate autoComplete="off">
+                            <TextField 
+                                id="title" 
+                                label="Title" 
+                                variant="filled" 
+                                fullWidth 
+                                className={classes.input} 
+                                placeholder="Give your post a title..." 
+                                onChange={handleTitleUpdate}
+                                value={postContent.title}
+                            />
                             <TextField 
                                 id="links" 
                                 label="Links to Resources" 
@@ -87,6 +100,7 @@ export default function CreatePostScreen(props : props){
                                 className={classes.input}
                                 placeholder="Enter one link per line..."
                                 onChange={handleLinkUpdate}
+                                value={postContent.content}
                             />
                             <TextField 
                                 id="description" 
@@ -98,6 +112,7 @@ export default function CreatePostScreen(props : props){
                                 className={classes.input}
                                 placeholder="Give your post a description..."
                                 onChange={handleDescriptionUpdate}
+                                value={postContent.description}
                             />
                             <Button color="secondary" variant="contained" className={classes.submitButton} onClick={handleSubmit}>Submit Post</Button>
                         </form>
