@@ -43,7 +43,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "npm run build && aws --profile kilian s3 sync build/ s3://core-rhino-app --acl public-read"
+    "deploy": "git add . && git commit -a && git push && npm run build && aws --profile kilian s3 sync build/ s3://core-rhino-app --acl public-read"
   },
   "eslintConfig": {
     "extends": "react-app"

@@ -70,6 +70,10 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
+const refreshPage = () => {
+  window.location.reload(false);
+}
+
 function ElevateOnScroll(props : {children : React.ReactElement}) {
 
   const trigger = useScrollTrigger({
@@ -94,10 +98,10 @@ export default function ButtonAppBar() {
     <ElevateOnScroll>
       <AppBar position="sticky" elevation={0} className={classes.root}>
         <Toolbar>
-          <Link to="/browse" className={classes.logo}>
+          <div onClick={refreshPage} className={classes.logo}>
             <img src={logo} style={{height: "100%"}}/>
             <Typography variant="h4" noWrap className={classes.title}>Rhino</Typography>
-          </Link>
+          </div>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />

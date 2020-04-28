@@ -39,14 +39,14 @@ const useStyles = makeStyles((theme : Theme) =>
     })
 )
 
-export default function PostCard(){
+export default function PostCard(props : {onClick : VoidFunction}){
 
     const classes = useStyles();
 
     return(
         <Card variant="outlined" className={classes.root}>
             {/* onclick will open create post overlay */}
-           <CardActionArea className={classes.actionArea}> 
+           <CardActionArea className={classes.actionArea} onClick={props.onClick}> 
                 <Grid container direction="row" wrap="nowrap" justify="space-evenly" alignItems="center">
                     <AccountCircleIcon  fontSize="large" color="secondary"/>
                     <Input className={classes.input} placeholder="Create Post..." disabled></Input>

@@ -9,6 +9,7 @@ import {CreatePostCard, PopUpButton} from '../components';
  
 // DUMMY CONTENT FOR DISPLAYING POSTS
 import {Post} from '../interfaces';
+import CreatePostScreen from '../components/CreatePostScreen';
 const posts : Array<Post>= [
     {
         title : "Rhino migration patterns",
@@ -79,13 +80,19 @@ interface props extends WithStyles<typeof styles>{
 
 function BrowsePage(props : props){
     const {classes} = props;
-    const [sort, setSort] = React.useState("new")
+    const [sort, setSort] = React.useState("new");
+    const [createPostVisible, setCreatePostVisible] = React.useState(false);
     const isMobile = useMediaQuery('(max-width:640px)')
 
     const handleSortSelectChange = (e : React.ChangeEvent<{value: unknown}>) => {
         console.log("Sorting by", e.target.value);
         setSort(e.target.value as string);
     }
+
+    const handleCreatePostVisible = () => {
+        setCreatePostVisible(!createPostVisible);
+    }
+    // console.log("Create Post visible: ", createPostVisible);
 
     return(
             <>
@@ -103,7 +110,7 @@ function BrowsePage(props : props){
                 </Select>
             </Box>
             <Container className={classes.root} maxWidth="lg" disableGutters={isMobile}>
-                <CreatePostCard />
+                <CreatePostCard onClick={handleCreatePostVisible}/>
                 {
                     posts.map((p) => {
                         return(
@@ -111,10 +118,13 @@ function BrowsePage(props : props){
                         )
                     })
                 }
-                <PopUpButton ariaLabel="post" direction="up">
+                <PopUpButton ariaLabel="post" direction="up" onClick={handleCreatePostVisible}>
                     <PostAddIcon />
                 </PopUpButton>
             </Container>
+
+            <CreatePostScreen visible={createPostVisible} toggleVisible={handleCreatePostVisible} />
+
             </>
     )
 }

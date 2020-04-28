@@ -8,7 +8,8 @@ import {useScrollTrigger, Slide, Fab} from '@material-ui/core';
 interface props{
     ariaLabel : string,
     direction : 'up' | 'down' | 'left' | 'right',
-    children? : React.ReactElement
+    children? : React.ReactElement,
+    onClick : VoidFunction
 }
 
 export default function PopUpButton(props : props) {
@@ -19,7 +20,7 @@ export default function PopUpButton(props : props) {
 
       return(
           <Slide direction={props.direction} in={trigger}>
-              <Fab color={"secondary"} aria-label={props.ariaLabel} style={{position:"fixed", bottom:"5%", right:"10%"}}>
+              <Fab color={"secondary"} aria-label={props.ariaLabel} onClick={props.onClick} style={{position:"fixed", bottom:"5%", right:"10%"}}>
                   {props.children}
               </Fab>
           </Slide>

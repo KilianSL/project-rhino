@@ -1,9 +1,10 @@
 import React from 'react';
-import { Card, Fade, Button, Grid, CardActionArea, CardContent, Typography, CardActions } from '@material-ui/core';
+import { Card, Fade, Button, Grid, CardActionArea, CardContent, Typography, CardActions, Box } from '@material-ui/core';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import {Post} from '../interfaces';
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
+import ChatBubbleIcon from '@material-ui/icons/ChatBubble';
 
 const useStyles = makeStyles((theme : Theme) => 
     createStyles({
@@ -60,6 +61,10 @@ export default function PostCard(props : Post){
                 </Typography>
                 <Button onClick={handleDislikeEvent} style={{color : likeState === -1 ? "dodgerblue" : "grey"}}>
                     <ArrowDownwardIcon />
+                </Button>
+                <Button style={{color : "grey"}}>
+                    <ChatBubbleIcon />
+                    <Typography variant="body2" style={{color : "white", paddingLeft: '10px'}}>128</Typography>
                 </Button>
             </CardActions>
         </Card>
