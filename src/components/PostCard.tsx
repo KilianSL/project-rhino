@@ -14,12 +14,15 @@ const useStyles = makeStyles((theme : Theme) =>
             color: "white",
             borderRadius: 0,
             marginBottom: "5px",
-
         },
         [theme.breakpoints.up('lg')]: {
             root : {
                 borderRadius: theme.shape.borderRadius,
             }
+        },
+        text : {
+            textOverflow : "ellipsis",
+            overflow: "hidden",
         }
     })
 )
@@ -44,10 +47,10 @@ export default function PostCard(props : Post){
         <Card variant="outlined" className={classes.root}>
             <CardActionArea>
                 <CardContent>
-                    <Typography variant="h5">
+                    <Typography variant="h5"   className={classes.text}>
                         {props.title}
                     </Typography>
-                    <Typography variant="body2">
+                    <Typography variant="body2" className={classes.text}>
                         {props.description}
                     </Typography>
                 </CardContent>
