@@ -66,6 +66,10 @@ export default function CreatePostScreen(props : props){
     }
     const handleSubmit = () => {
         console.log("Submitted");
+        if (postContent.title === "" || postContent.description === ""  || postContent.content === "" ) {
+            alert("Make sure your post is complete!");
+            return;
+        }
         submitPost(postContent.title, postContent.description, postContent.content);
         clearPostContent();
         props.toggleVisible();
