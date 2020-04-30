@@ -1,17 +1,12 @@
 import {api_root} from '../../utils';
 import {Post} from '../../interfaces';
 
-
 export default async function getPosts(){
-    console.log("Getting Posts")
-    var options = {
-        headers : {
-            'Content-Type' : 'application/json'
-        }
+    let res = await fetch(api_root + "/posts")
+    if (!res.ok) {
+        return Promise.reject(res);
     }
-    var posts : any;
-    var data = await fetch(api_root + "/posts", options)
-    data = await data.json();
-    console.log(data);
-    return data.body;
+    res = await res.json()
+    console.log("Data: ", res)
+    return res.body
 }

@@ -11,50 +11,50 @@ import getPosts from './getPosts'
 // DUMMY CONTENT FOR DISPLAYING POSTS
 import {Post} from '../../interfaces';
 
-// const posts1 : Array<Post>= [
-//     {
-//         postID : "",
-//         title : "Rhino migration patterns",
-//         description : "A Collection of CSV files showing how rhinos travelled over the last 13 months.",
-//         likes : 5,
-//         content : "wikipedia.com/rhino"
-//     },
-//     {
-//         postID : "",
-//         title : "Rhino migration patterns",
-//         description : "A Collection of CSV files showing how rhinos travelled over the last 13 months.",
-//         likes : 5,
-//         content : "wikipedia.com/rhino"
-//     },
-//     {
-//         postID : "",
-//         title : "Rhino migration patterns",
-//         description : "A Collection of CSV files showing how rhinos travelled over the last 13 months.",
-//         likes : 5,
-//         content : "wikipedia.com/rhino"
-//     },
-//     {
-//         postID : "",
-//         title : "Rhino migration patterns",
-//         description : "A Collection of CSV files showing how rhinos travelled over the last 13 months.",
-//         likes : 5,
-//         content : "wikipedia.com/rhino"
-//     },
-//     {
-//         postID : "",
-//         title : "Rhino migration patterns",
-//         description : "A Collection of CSV files showing how rhinos travelled over the last 13 months.",
-//         likes : 5,
-//         content : "wikipedia.com/rhino"
-//     },
-//     {
-//         postID : "",
-//         title : "Rhino migration patterns",
-//         description : "A Collection of CSV files showing how rhinos travelled over the last 13 months.",
-//         likes : 5,
-//         content : "wikipedia.com/rhino"
-//     },
-// ]
+const posts1 : Array<Post>= [
+    {
+        postID : "",
+        title : "Rhino migration patterns",
+        description : "A Collection of CSV files showing how rhinos travelled over the last 13 months.",
+        likes : 5,
+        content : "wikipedia.com/rhino"
+    },
+    {
+        postID : "",
+        title : "Rhino migration patterns",
+        description : "A Collection of CSV files showing how rhinos travelled over the last 13 months.",
+        likes : 5,
+        content : "wikipedia.com/rhino"
+    },
+    {
+        postID : "",
+        title : "Rhino migration patterns",
+        description : "A Collection of CSV files showing how rhinos travelled over the last 13 months.",
+        likes : 5,
+        content : "wikipedia.com/rhino"
+    },
+    {
+        postID : "",
+        title : "Rhino migration patterns",
+        description : "A Collection of CSV files showing how rhinos travelled over the last 13 months.",
+        likes : 5,
+        content : "wikipedia.com/rhino"
+    },
+    {
+        postID : "",
+        title : "Rhino migration patterns",
+        description : "A Collection of CSV files showing how rhinos travelled over the last 13 months.",
+        likes : 5,
+        content : "wikipedia.com/rhino"
+    },
+    {
+        postID : "",
+        title : "Rhino migration patterns",
+        description : "A Collection of CSV files showing how rhinos travelled over the last 13 months.",
+        likes : 5,
+        content : "wikipedia.com/rhino"
+    },
+]
 
 
 const styles = ({palette} : Theme) => createStyles({
@@ -122,10 +122,10 @@ function BrowsePage(props : props){
                     <Async.Loading><CircularProgress color="secondary" /></Async.Loading>
                     <Async.Fulfilled>
                         {
-                            (data : Array<Post>) => {
-                                data.map(p => {
-                                    <PostCard {...p} />
-                                })
+                            // posts1.map(p => <PostCard {...p} />)
+                            (data : any) => {
+                                console.log("Got", data)
+                                return (data.map((p : Post) => <PostCard {...p} />))
                             }
                         }
                     </Async.Fulfilled>
