@@ -7,55 +7,7 @@ import {PostCard} from '../../components';
 import {CreatePostCard, PopUpButton, CreatePostScreen} from '../../components';
 import Async from 'react-async'
 import getPosts from './getPosts'
- 
-// DUMMY CONTENT FOR DISPLAYING POSTS
-import {Post} from '../../interfaces';
-
-const posts1 : Array<Post>= [
-    {
-        postID : "",
-        title : "Rhino migration patterns",
-        description : "A Collection of CSV files showing how rhinos travelled over the last 13 months.",
-        likes : 5,
-        content : "wikipedia.com/rhino"
-    },
-    {
-        postID : "",
-        title : "Rhino migration patterns",
-        description : "A Collection of CSV files showing how rhinos travelled over the last 13 months.",
-        likes : 5,
-        content : "wikipedia.com/rhino"
-    },
-    {
-        postID : "",
-        title : "Rhino migration patterns",
-        description : "A Collection of CSV files showing how rhinos travelled over the last 13 months.",
-        likes : 5,
-        content : "wikipedia.com/rhino"
-    },
-    {
-        postID : "",
-        title : "Rhino migration patterns",
-        description : "A Collection of CSV files showing how rhinos travelled over the last 13 months.",
-        likes : 5,
-        content : "wikipedia.com/rhino"
-    },
-    {
-        postID : "",
-        title : "Rhino migration patterns",
-        description : "A Collection of CSV files showing how rhinos travelled over the last 13 months.",
-        likes : 5,
-        content : "wikipedia.com/rhino"
-    },
-    {
-        postID : "",
-        title : "Rhino migration patterns",
-        description : "A Collection of CSV files showing how rhinos travelled over the last 13 months.",
-        likes : 5,
-        content : "wikipedia.com/rhino"
-    },
-]
-
+ import {Post} from '../../interfaces';
 
 const styles = ({palette} : Theme) => createStyles({
     root : {
@@ -122,9 +74,13 @@ function BrowsePage(props : props){
                     <Async.Loading><CircularProgress color="secondary" /></Async.Loading>
                     <Async.Fulfilled>
                         {
-                            // posts1.map(p => <PostCard {...p} />)
-                            (data : any) => {
+                            (data : Post[]) => {
                                 console.log("Got", data)
+                                if (sort === "new") {
+                                    data.sort((a, b) => {return b.timestamp - a.timestamp})
+                                } else {
+                                    data.sort((a, b) => {return b.likes - a.likes})
+                                }
                                 return (data.map((p : Post) => <PostCard {...p} />))
                             }
                         }
