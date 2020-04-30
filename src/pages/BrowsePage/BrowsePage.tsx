@@ -5,54 +5,56 @@ import PostAddIcon from '@material-ui/icons/PostAdd';
 import {AppBar} from '../../components';
 import {PostCard} from '../../components';
 import {CreatePostCard, PopUpButton, CreatePostScreen} from '../../components';
+import Async from 'react-async'
+import getPosts from './getPosts'
  
 // DUMMY CONTENT FOR DISPLAYING POSTS
 import {Post} from '../../interfaces';
 
-const posts1 : Array<Post>= [
-    {
-        postID : "",
-        title : "Rhino migration patterns",
-        description : "A Collection of CSV files showing how rhinos travelled over the last 13 months.",
-        likes : 5,
-        content : "wikipedia.com/rhino"
-    },
-    {
-        postID : "",
-        title : "Rhino migration patterns",
-        description : "A Collection of CSV files showing how rhinos travelled over the last 13 months.",
-        likes : 5,
-        content : "wikipedia.com/rhino"
-    },
-    {
-        postID : "",
-        title : "Rhino migration patterns",
-        description : "A Collection of CSV files showing how rhinos travelled over the last 13 months.",
-        likes : 5,
-        content : "wikipedia.com/rhino"
-    },
-    {
-        postID : "",
-        title : "Rhino migration patterns",
-        description : "A Collection of CSV files showing how rhinos travelled over the last 13 months.",
-        likes : 5,
-        content : "wikipedia.com/rhino"
-    },
-    {
-        postID : "",
-        title : "Rhino migration patterns",
-        description : "A Collection of CSV files showing how rhinos travelled over the last 13 months.",
-        likes : 5,
-        content : "wikipedia.com/rhino"
-    },
-    {
-        postID : "",
-        title : "Rhino migration patterns",
-        description : "A Collection of CSV files showing how rhinos travelled over the last 13 months.",
-        likes : 5,
-        content : "wikipedia.com/rhino"
-    },
-]
+// const posts1 : Array<Post>= [
+//     {
+//         postID : "",
+//         title : "Rhino migration patterns",
+//         description : "A Collection of CSV files showing how rhinos travelled over the last 13 months.",
+//         likes : 5,
+//         content : "wikipedia.com/rhino"
+//     },
+//     {
+//         postID : "",
+//         title : "Rhino migration patterns",
+//         description : "A Collection of CSV files showing how rhinos travelled over the last 13 months.",
+//         likes : 5,
+//         content : "wikipedia.com/rhino"
+//     },
+//     {
+//         postID : "",
+//         title : "Rhino migration patterns",
+//         description : "A Collection of CSV files showing how rhinos travelled over the last 13 months.",
+//         likes : 5,
+//         content : "wikipedia.com/rhino"
+//     },
+//     {
+//         postID : "",
+//         title : "Rhino migration patterns",
+//         description : "A Collection of CSV files showing how rhinos travelled over the last 13 months.",
+//         likes : 5,
+//         content : "wikipedia.com/rhino"
+//     },
+//     {
+//         postID : "",
+//         title : "Rhino migration patterns",
+//         description : "A Collection of CSV files showing how rhinos travelled over the last 13 months.",
+//         likes : 5,
+//         content : "wikipedia.com/rhino"
+//     },
+//     {
+//         postID : "",
+//         title : "Rhino migration patterns",
+//         description : "A Collection of CSV files showing how rhinos travelled over the last 13 months.",
+//         likes : 5,
+//         content : "wikipedia.com/rhino"
+//     },
+// ]
 
 
 const styles = ({palette} : Theme) => createStyles({
@@ -89,8 +91,6 @@ function BrowsePage(props : props){
     const [createPostVisible, setCreatePostVisible] = React.useState(false);
     const isMobile = useMediaQuery('(max-width:640px)')
 
-    const [posts, setPosts] = React.useState(posts1);
-
     const handleSortSelectChange = (e : React.ChangeEvent<{value: unknown}>) => {
         console.log("Sorting by", e.target.value);
         setSort(e.target.value as string);
@@ -118,16 +118,21 @@ function BrowsePage(props : props){
             </Box>
             <Container className={classes.root} maxWidth="lg" disableGutters={isMobile}>
                 <CreatePostCard onClick={handleCreatePostVisible}/>
-                {
-                    posts ?
-                    posts.map((p : Post) => {
-                        return(
-                            <PostCard {...p} />
-                        )
-                    })
-                    :
-                    <CircularProgress color="secondary"/>
-                }
+                <Async promiseFn={getPosts}>
+                    <Async.Loading><CircularProgress color="secondary" /></Async.Loading>
+                    <Async.Fulfilled>
+                        {
+                            (data : Array<Post>) => {
+                                data.map(p => {
+                                    <PostCard {...p} />
+                                })
+                            }
+                        }
+                    </Async.Fulfilled>
+                    <Async.Rejected>
+                        Something went wrong... please try again later :(
+                    </Async.Rejected>
+                </Async>
                 <PopUpButton ariaLabel="post" direction="up" onClick={handleCreatePostVisible}>
                     <PostAddIcon />
                 </PopUpButton>

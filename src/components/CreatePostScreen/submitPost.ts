@@ -6,7 +6,7 @@ export default function submitPost(title : string, description : string, content
         title,
         description,
         content,
-        timestamp : +new Date().toString() // Timestamp in ms integer
+        timestamp : +new Date() // Timestamp in ms integer
     };
 
     var request = {
