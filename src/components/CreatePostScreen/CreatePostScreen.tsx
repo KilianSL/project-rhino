@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme : Theme) =>
             color: "white",
             zIndex : 1,
             display: "flex",
-            flexDirection: "column"
+            flexDirection: "column",
         },
         form : {
 

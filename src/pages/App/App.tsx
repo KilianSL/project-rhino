@@ -8,7 +8,7 @@ import LandingPage from '../LandingPage';
 import ErrorPage from '../ErrorPage/ErrorPage';
 import InfoPage from '../InfoPage';
 import {theme} from '../../utils';
-import BrowsePage from '../BrowsePage';
+import BrowsePage from '../BrowsePage/BrowsePage';
 
 // APP PAGE - HANDLES ROUTING FOR ALL OF APP - PROVIDES STORE TO ALL COMPONENTS IN APP - HAS HELMET FOR META ETC.
 

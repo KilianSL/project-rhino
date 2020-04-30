@@ -6,7 +6,7 @@ export default function submitPost(title : string, description : string, content
         title,
         description,
         content,
-        timestamp : +new Date() // Timestamp in ms integer
+        timestamp : +new Date().toString() // Timestamp in ms integer
     };
 
     var request = {
@@ -18,7 +18,7 @@ export default function submitPost(title : string, description : string, content
         }
     };
 
-    var url = 'https://6maig9i4c6.execute-api.eu-west-2.amazonaws.com/prod/posts';
+    var url = api_root + '/posts';
 
     console.log("Requesting ", request, "from ", url);
     fetch(url, request)

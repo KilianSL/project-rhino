@@ -1,16 +1,15 @@
 import React from 'react';
 import {withStyles, WithStyles, createStyles} from '@material-ui/styles';
-import {Theme, Container, Select, Box, MenuItem, Typography, useMediaQuery, useScrollTrigger, Slide} from '@material-ui/core';
+import {Theme, Container, Select, Box, MenuItem, Typography, useMediaQuery, useScrollTrigger, Slide, CircularProgress} from '@material-ui/core';
 import PostAddIcon from '@material-ui/icons/PostAdd';
-import {AppBar} from '../components';
-import {PostCard} from '../components';
-import {CreatePostCard, PopUpButton, CreatePostScreen} from '../components';
-
+import {AppBar} from '../../components';
+import {PostCard} from '../../components';
+import {CreatePostCard, PopUpButton, CreatePostScreen} from '../../components';
  
 // DUMMY CONTENT FOR DISPLAYING POSTS
-import {Post} from '../interfaces';
+import {Post} from '../../interfaces';
 
-const posts : Array<Post>= [
+const posts1 : Array<Post>= [
     {
         postID : "",
         title : "Rhino migration patterns",
@@ -90,6 +89,8 @@ function BrowsePage(props : props){
     const [createPostVisible, setCreatePostVisible] = React.useState(false);
     const isMobile = useMediaQuery('(max-width:640px)')
 
+    const [posts, setPosts] = React.useState(posts1);
+
     const handleSortSelectChange = (e : React.ChangeEvent<{value: unknown}>) => {
         console.log("Sorting by", e.target.value);
         setSort(e.target.value as string);
@@ -98,8 +99,8 @@ function BrowsePage(props : props){
     const handleCreatePostVisible = () => {
         setCreatePostVisible(!createPostVisible);
     }
-    // console.log("Create Post visible: ", createPostVisible);
 
+    // console.log("Create Post visible: ", createPostVisible);
     return(
             <>
             <AppBar />
@@ -118,11 +119,14 @@ function BrowsePage(props : props){
             <Container className={classes.root} maxWidth="lg" disableGutters={isMobile}>
                 <CreatePostCard onClick={handleCreatePostVisible}/>
                 {
-                    posts.map((p) => {
+                    posts ?
+                    posts.map((p : Post) => {
                         return(
                             <PostCard {...p} />
                         )
                     })
+                    :
+                    <CircularProgress color="secondary"/>
                 }
                 <PopUpButton ariaLabel="post" direction="up" onClick={handleCreatePostVisible}>
                     <PostAddIcon />
