@@ -2,32 +2,27 @@
 // Renders upon it the children passed to the component
 // TODO - Implement direction, position, color as props
 
-import React from "react";
-import { useScrollTrigger, Slide, Fab } from "@material-ui/core";
+import React from 'react';
+import {useScrollTrigger, Slide, Fab} from '@material-ui/core';
 
-interface props {
-  ariaLabel: string;
-  direction: "up" | "down" | "left" | "right";
-  children?: React.ReactNode;
-  onClick: VoidFunction;
+interface props{
+    ariaLabel : string,
+    direction : 'up' | 'down' | 'left' | 'right',
+    children? : React.ReactElement,
+    onClick : VoidFunction
 }
 
-export default function PopUpButton(props: props) {
-  const trigger = useScrollTrigger({
-    disableHysteresis: true,
-    threshold: 100,
-  });
+export default function PopUpButton(props : props) {
+    const trigger = useScrollTrigger({
+        disableHysteresis: true,
+        threshold : 100,
+      });
 
-  return (
-    <Slide direction={props.direction} in={trigger}>
-      <Fab
-        color={"secondary"}
-        aria-label={props.ariaLabel}
-        onClick={props.onClick}
-        style={{ position: "fixed", bottom: "5%", right: "10%" }}
-      >
-        {props.children}
-      </Fab>
-    </Slide>
-  );
+      return(
+          <Slide direction={props.direction} in={trigger}>
+              <Fab color={"secondary"} aria-label={props.ariaLabel} onClick={props.onClick} style={{position:"fixed", bottom:"5%", right:"10%"}}>
+                  {props.children}
+              </Fab>
+          </Slide>
+      )
 }

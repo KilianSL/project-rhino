@@ -5,7 +5,6 @@ import {Post} from '../interfaces';
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
 import ChatBubbleIcon from '@material-ui/icons/ChatBubble';
-import { api_root } from '../utils';
 
 const useStyles = makeStyles((theme : Theme) => 
     createStyles({
@@ -28,7 +27,6 @@ const useStyles = makeStyles((theme : Theme) =>
     })
 )
 
-
 export default function PostCard(props : Post){
 
     // -1 = disliked, 0 = neutral, +1 = liked
@@ -36,44 +34,11 @@ export default function PostCard(props : Post){
     
     const classes = useStyles();
 
-    function sendLike(like : number){
-
-        var body = {
-            id : props.postID,
-            timestamp: props.timestamp,
-            like : like
-        }
-    
-        var request = {
-            method : "PUT",
-            mode : "cors" as RequestMode,
-            body : JSON.stringify(body),
-            headers : {
-                "Content-Type" : "application/json"
-            }
-        }
-
-        console.log("Sending like");
-
-        fetch(api_root + "/posts", request)
-        .then(
-            (data : Body) => {
-                console.log("Got response", data)
-            }
-        )
-        .catch(
-            err => console.log(err)
-        )
-    }
-    
-
     const handleLikeEvent = () => { // Likes or Unlikes
-        sendLike(1);
         setLikeState(1);
     }
 
     const handleDislikeEvent = () => { // Dislikes or UnDislikes
-        sendLike(-1);
         setLikeState(-1);
     }
 
